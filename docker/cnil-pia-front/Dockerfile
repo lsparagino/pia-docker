@@ -9,9 +9,9 @@ RUN wget -qO- https://github.com/LINCnil/pia/archive/refs/tags/v$PIA_VERSION.tar
 
 
 FROM node:14 as builder
-ARG PIA_VERSION
-ARG NODE_SASS_VERSION
-ARG ANGULAR_CLI_VERSION
+ARG PIA_VERSION=3.0.2
+ARG NODE_SASS_VERSION=4.14.1
+ARG ANGULAR_CLI_VERSION=latest
 
 COPY --from=source /pia-$PIA_VERSION /build/pia-$PIA_VERSION
 ENTRYPOINT ["tail", "-f", "/dev/null"]
