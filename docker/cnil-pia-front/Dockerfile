@@ -22,11 +22,11 @@ WORKDIR /build
 
 RUN npm install -g @angular/cli@$ANGULAR_CLI_VERSION
 
-RUN cd /build/pia-$PIA_VERSION \
- && npm ci \
- && npm install node-sass@$NODE_SASS_VERSION \
- && ng build --prod --build-optimizer \
- && mv /build/pia-$PIA_VERSION /build/pia
+RUN cd /build/pia-$PIA_VERSION
+RUN npm ci
+RUN npm install node-sass@$NODE_SASS_VERSION
+RUN ng build --prod --build-optimizer
+RUN mv /build/pia-$PIA_VERSION /build/pia
 
 FROM nginx:1.21
 
