@@ -21,8 +21,8 @@ USER root
 WORKDIR /build/pia-$PIA_VERSION
 
 RUN npm install -g @angular/cli@$ANGULAR_CLI_VERSION
-
-RUN npm ci
+RUN rm package-lock.json
+RUN npm i
 RUN npm install node-sass@$NODE_SASS_VERSION
 RUN ng build --prod --build-optimizer
 RUN mv /build/pia-$PIA_VERSION /build/pia
